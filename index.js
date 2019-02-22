@@ -29,12 +29,12 @@ bot.on('ready', function(){
     console.log('Bot is ready.');
     
     bot.on('messageDelete', function(message){
-           if(!message.guild.channels.find('name', 'logs')
+           if(!message.guild.channels.find('name', 'logs'))
            {
                message.guild.createChannel('logs', 'text')
            }
             .then(function(channel){
-                const embed = new Discord.RichEmbed
+                const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
                 .setThumbnail(message.member.displayAvatarURL)
