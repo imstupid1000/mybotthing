@@ -66,7 +66,7 @@ bot.on('ready', function(){
                 .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
                 .setColor('#00FF00')
                            channel.send(embed)
-          })
+ 
          }
 
         })
