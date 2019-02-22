@@ -28,7 +28,7 @@ if(message.content == 'hi')
 bot.on('ready', function(){
     console.log('Bot is ready.');
     
-    bot.on('messageDelete, function(message, member){
+    bot.on('messageDelete, function(message){
            if(!message.guild.channels.find('name', 'logs')
            {
                message.guild.createChannel('logs', 'text')
