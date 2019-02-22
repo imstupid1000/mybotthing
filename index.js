@@ -47,6 +47,8 @@ bot.on('ready', function(){
                 .setColor('#00FF00')
                            channel.send(embed)
           })
+         }
+        })
              
   
      
