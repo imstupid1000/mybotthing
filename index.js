@@ -49,7 +49,7 @@ bot.on('ready', function(){
           
              
             }
-               
+    
             )}
      
 bot.on('guildMemberAdd', function(member){
