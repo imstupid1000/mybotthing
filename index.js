@@ -48,7 +48,20 @@ bot.on('ready', function(){
                            channel.send(embed)
            })
             }
-
+            else
+             {
+                const embed = new Discord.RichEmbed()
+                 .setTitle('Message Deleted')
+                .setAuthor(bot.user.username, bot.user.avatarURL)
+                .setThumbnail(message.member.displayAvatarURL)
+                .addField('Message', message.content)
+                .addField('Member', message.member.displayName)
+                .setTimestamp()
+                .setURL(message.url)
+                .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
+                .setColor('#00FF00')
+                           channel.send(embed)
+             }
         })
 
 bot.on('guildMemberAdd', function(member){
