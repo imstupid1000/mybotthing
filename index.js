@@ -45,6 +45,7 @@ bot.on('ready', function(){
                 .setFooter("Message by " + member.displayName, member.displayAvatarURL
                     
            })
+            }
 
         })
 
