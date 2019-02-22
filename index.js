@@ -43,7 +43,7 @@ bot.on('ready', function(){
                 .addField('Member', message.member.displayName)
                 .setTimestamp()
                 .setURL(message.url)
-                .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL
+                .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
                     
                            channel.send(embed)
            })
