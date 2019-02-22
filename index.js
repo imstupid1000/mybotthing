@@ -48,6 +48,7 @@ bot.on('ready', function(){
                            channel.send(embed)
           
              })
+            }
                else
                    {
                        const embed = new Discord.RichEmbed()
