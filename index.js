@@ -37,15 +37,15 @@ bot.on('ready', function(){
              
                 const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
-                .setAuthor(this.bot.user.username, this.bot.user.avatarURL)
-                .setThumbnail(this.message.member.displayAvatarURL)
-                .addField('Message', this.message.content)
-                .addField('Member', this.message.member.displayName)
+                .setAuthor(bot.user.username, bot.user.avatarURL)
+                .setThumbnail(message.member.displayAvatarURL)
+                .addField('Message', message.content)
+                .addField('Member', message.member.displayName)
                 .setTimestamp()
-                .setURL(this.message.url)
-                .setFooter("Message by " + this.message.member.displayName, message.member.displayAvatarURL)
+                .setURL(message.url)
+                .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
                 .setColor('#00FF00')
-                           this.channel.send(embed)
+                           channel.send(embed)
           })
          }
         else
