@@ -1,4 +1,5 @@
 const Commando = require("discord.js-commando");
+const Discord = require('discord.js')
 const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-'
@@ -26,6 +27,20 @@ if(message.content == 'hi')
 
 bot.on('ready', function(){
     console.log('Bot is ready.');
+    
+    bot.on('messageDelete, function(message, member){
+           if(!message.guild.channels.find('name', 'logs')
+           {
+               message.guild.createChannel('logs', 'text')
+           }
+            .then(function(channel){
+                const embed = new Discord.RichEmbed
+                .setTitle('Message Deleted')
+                .setAuthor(bot.user.username, bot.user.avatarURL)
+                .setThumbnail(member.avatarURL
+                    
+           })
+        })
 
 bot.on('guildMemberAdd', function(member){
     if(!member.guild.channels.find('name', 'welcome'))
