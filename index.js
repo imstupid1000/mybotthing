@@ -44,7 +44,7 @@ bot.on('ready', function(){
                 .setTimestamp()
                 .setURL(message.url)
                 .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
-                    
+                .setColor('#00FF00')
                            channel.send(embed)
            })
             }
