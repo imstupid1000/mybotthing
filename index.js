@@ -28,7 +28,7 @@ if(message.content == 'hi')
 bot.on('ready', function(){
     console.log('Bot is ready.');
     
-    bot.on('messageDelete', function(message, member){
+    bot.on('messageDelete', function(message){
            if(!message.guild.channels.find('name', 'logs')
            {
                message.guild.createChannel('logs', 'text')
@@ -37,15 +37,15 @@ bot.on('ready', function(){
                 const embed = new Discord.RichEmbed
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(member.displayAvatarURL)
+                .setThumbnail(message.member.displayAvatarURL)
                 .addField('Message', message.content)
-                .addField('Member', member.displayName)
+                .addField('Member', message.member.displayName)
                 .setTimestamp()
                 .setURL(message.url)
-                .setFooter("Message by " + member.displayName, member.displayAvatarURL
+                .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL
                     
            })
-            }
+
 
         })
 
