@@ -40,6 +40,7 @@ bot.on('ready', function(){
                 .setThumbnail(member.avatarURL
                     
            })
+          }
         })
 
 bot.on('guildMemberAdd', function(member){
