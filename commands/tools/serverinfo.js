@@ -20,7 +20,7 @@ constructor(client)
     {
         const embed = new Discord.RichEmbed()
   .setTitle("Server Info")
-  .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+  .setAuthor(this.client.user.username, this.client.user.avatarURL)
   /*
    * Alternatively, use "#00AE86", [0, 174, 134] or an integer number.
    */
