@@ -24,9 +24,7 @@ constructor(client)
       name: this.client.user.username,
       icon_url: this.client.user.avatarURL
     },
-    title: "This is an embed",
-    url: "http://google.com",
-    description: "This is a test embed to showcase what they look like and what they can do.",
+
     fields: [{
         name: "Member count",
         value: "Members in server: " + message.guild.memberCount
