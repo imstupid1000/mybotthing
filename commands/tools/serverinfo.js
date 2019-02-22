@@ -21,8 +21,8 @@ constructor(client)
         message.channel.send({embed: {
     color: 3447003,
     author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
+      name: this.client.user.username,
+      icon_url: this.client.user.avatarURL
     },
     title: "This is an embed",
     url: "http://google.com",
