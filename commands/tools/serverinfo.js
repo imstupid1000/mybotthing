@@ -40,7 +40,7 @@ constructor(client)
    * Inline fields may not display as inline if the thumbnail and/or image is too big.
    */
   .addField("Member count", message.guild.memberCount)
-        .addField('')
+        
   /*
    * Blank field, useful to create some space.
    */
