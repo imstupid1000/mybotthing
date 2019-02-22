@@ -28,7 +28,7 @@ if(message.content == 'hi')
 bot.on('ready', function(){
     console.log('Bot is ready.');
     
-    bot.on('messageDelete, function(message){
+    bot.on('messageDelete', function(message, member){
            if(!message.guild.channels.find('name', 'logs')
            {
                message.guild.createChannel('logs', 'text')
@@ -37,7 +37,7 @@ bot.on('ready', function(){
                 const embed = new Discord.RichEmbed
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(message.member.avatarURL
+                .setThumbnail(member.avatarURL
                     
            })
           }
