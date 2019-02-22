@@ -37,10 +37,15 @@ bot.on('ready', function(){
                 const embed = new Discord.RichEmbed
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(member.avatarURL
+                .setThumbnail(member.displayAvatarURL)
+                .addField('Message', message.content)
+                .addField('Member', member.displayName)
+                .setTimestamp()
+                .setURL(message.url)
+                .setFooter("Message by " + member.displayName, member.displayAvatarURL
                     
            })
-          }
+
         })
 
 bot.on('guildMemberAdd', function(member){
