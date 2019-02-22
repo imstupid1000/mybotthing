@@ -44,6 +44,7 @@ bot.on('ready', function(){
                 .setURL(message.url)
                 .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL
                     
+                           channel.send(embed)
            })
 
 
