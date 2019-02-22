@@ -32,8 +32,9 @@ bot.on('ready', function(){
            if(!message.guild.channels.find('name', 'logs'))
            {
                message.guild.createChannel('logs', 'text')
-           }
+           
             .then(function(channel){
+             
                 const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -46,7 +47,7 @@ bot.on('ready', function(){
                     
                            channel.send(embed)
            })
-
+            }
 
         })
 
