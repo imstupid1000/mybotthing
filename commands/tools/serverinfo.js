@@ -10,10 +10,10 @@ class KickMemberCommand extends commando.Command
 constructor(client)
     {
         super(client,{
-            name: 'kick',
+            name: 'serverinfo',
             group: 'tools',
-            memberName: 'kick',
-            description: 'Kicks specified member'
+            memberName: 'serverinfo',
+            description: 'Do I need to explain?'
         });
     }
     async run(message, args)
