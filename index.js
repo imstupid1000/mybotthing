@@ -37,7 +37,7 @@ bot.on('ready', function(){
                 const embed = new Discord.RichEmbed
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(member.avatarURL
+                .setThumbnail(message.member.avatarURL
                     
            })
           }
