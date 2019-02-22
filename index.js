@@ -47,7 +47,7 @@ bot.on('ready', function(){
                 .setColor('#00FF00')
                            channel.send(embed)
            })
-            }
+   
             else
              {
                 const embed = new Discord.RichEmbed()
@@ -62,6 +62,7 @@ bot.on('ready', function(){
                 .setColor('#00FF00')
                            channel.send(embed)
              }
+           }
         })
 
 bot.on('guildMemberAdd', function(member){
