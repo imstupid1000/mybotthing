@@ -102,13 +102,8 @@ bot.on('guildMemberAdd', function (member) {
     }
 });
 
-bot.on('message', function (member) {
-    if (message.content === '-testjoin')
-    {
-        client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(message.author));
-    }
-});
-    client.on('guildMemberAdd', async member => {
+
+    bot.on('guildMemberAdd', async member => {
         const channel = member.guild.channels.find(ch => ch.name === 'logs');
         if (!channel) return;
     
