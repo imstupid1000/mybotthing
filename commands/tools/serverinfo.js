@@ -5,7 +5,7 @@ const client = new commando.Client({
     commandPrefix: '-'
 });
 
-class KickMemberCommand extends commando.Command {
+class ServerInfoCommand extends commando.Command {
     constructor(client) {
         super(client, {
             name: 'serverinfo',
@@ -50,4 +50,4 @@ class KickMemberCommand extends commando.Command {
 
 
 }
-module.exports = KickMemberCommand
+module.exports = ServerInfoCommand

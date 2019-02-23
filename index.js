@@ -4,6 +4,8 @@ const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-'
 });
+const Canvas = require('canvas');
+const snekfetch = require('snekfetch');
 
 
 bot.registry.registerGroup('fun', 'Fun');
@@ -99,6 +101,31 @@ bot.on('guildMemberAdd', function (member) {
         member.addRole(memberRole);
     }
 });
+
+bot.on('message', function (member) {
+    if (message.content === '-testjoin')
+    {
+        client.emit('guildMemberAdd', message.member || await message.guild.fetchMember(message.author));
+    }
+});
+    client.on('guildMemberAdd', async member => {
+        const channel = member.guild.channels.find(ch => ch.name === 'logs');
+        if (!channel) return;
+    
+        const canvas = Canvas.createCanvas(700, 250);
+        const ctx = canvas.getContext('2d');
+    
+        // Since the image takes time to load, you should await it
+        const background = await Canvas.loadImage('./images/wallpaper.jpg');
+        // This uses the canvas dimensions to stretch the image onto the entire canvas
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+        // Use helpful Attachment class structure to process the file for you
+        const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+    
+        channel.send(`Welcome to the server, ${member}!`, attachment);
+    });
+
+
 bot.on('guildCreate', function () {
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
