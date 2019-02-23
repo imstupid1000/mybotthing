@@ -6,6 +6,7 @@ const bot = new Commando.Client({
 });
 const Canvas = require('canvas');
 const snekfetch = require('snekfetch');
+const fs = require('fs')
 
 
 bot.registry.registerGroup('fun', 'Fun');
@@ -104,34 +105,47 @@ bot.on('guildMemberAdd', function (member) {
 
 
 bot.on('guildMemberAdd', async member => {
-	const channel = member.guild.channels.find(ch => ch.name === 'logs');
-	if (!channel) return;
+    const channel = member.guild.channels.find(ch => ch.name === 'logs');
+    if (!channel) return;
 
-	const canvas = Canvas.createCanvas(700, 250);
-	const ctx = canvas.getContext('2d');
+    const canvas = Canvas.createCanvas(700, 250);
+    const ctx = canvas.getContext('2d');
 
-	const background = await Canvas.loadImage('./images/wallpaper.jpg');
-	ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    const background = await Canvas.loadImage('./images/wallpaper.jpg');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-	ctx.strokeStyle = '#74037b';
-	ctx.strokeRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#74037b';
+    ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-	// Pick up the pen
-	ctx.beginPath();
-	// Start the arc to form a circle
-	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
-	// Put the pen down
-	ctx.closePath();
-	// Clip off the region you drew on
-	ctx.clip();
+    // Slightly smaller text placed above the member's display name
+    ctx.font = '28px arial';
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
 
-	const { body: buffer } = await snekfetch.get(member.user.displayAvatarURL);
-	const avatar = await Canvas.loadImage(buffer);
-	ctx.drawImage(avatar, 25, 25, 200, 200);
+    // Add an exclamation point here and below
+    ctx.font = applyText(canvas, `${member.displayName}!`);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
 
-	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+    ctx.beginPath();
+    ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.clip();
+    const welcomes = require('./welcomes.json')
+    const {
+        body: buffer
+    } = await snekfetch.get(member.user.displayAvatarURL);
+    const avatar = await Canvas.loadImage(buffer);
+    ctx.drawImage(avatar, 25, 25, 200, 200);
 
-	channel.send(`Welcome to the server, ${member}!`, attachment);
+    const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
+    const choosenumber = Math.floor(Math.random() * 5) + 1;
+    const welcomemessage = fs.readFile('welcomes.json', (err, data) => {
+        if(err) throw err;
+        let actualthing = JSON.parse(data, choosenumber)
+    })
+
+    channel.send(`${welcomemessage}, ${member}!`, attachment);
 });
 
 

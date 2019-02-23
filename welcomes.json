@@ -1,0 +1,4 @@
+{
+    "message1": "Welcome,",
+    "message2": "Welcome to ${member.guild.name}"
+}
