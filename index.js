@@ -29,7 +29,7 @@ bot.on('ready', function(){
     console.log('Bot is ready.');
     
     bot.on('messageDelete', function(message){
-           if (!message.guild.channels.find(c=>c.name==='logs') 
+           if (!message.guild.channels.find(c=>c.name==='logs'))
            {
                message.guild.createChannel('logs', 'text')
            
@@ -51,7 +51,7 @@ bot.on('ready', function(){
 
         })
     bot.on('messageDelete', function(message){
-           if (!message.guild.channels.find(c=>c.name==='logs')
+           if (!message.guild.channels.find(c=>c.name==='logs'))
            
                 {
                  let channel = message.guild.channels.find(c=>c.name==='logs')
