@@ -19,34 +19,29 @@ constructor(client)
     {
         if(args == '')
         {
-            message.channel.send('You must specify a member.')
+            message.channel.send('Specify a member.')
         }
         else
         {
-            if(args = message.mentions.members.first())
+            if(args == message.mentions.users.first())
             {
-                if(message.member.missingPermissions('KICK_MEMBERS')
-                   {
-                       message.channel.send('Looks like your missing permissions. I guees you cant kick them.'
-                   }
- 
-                
+                if(message.member.missingPermissions('KICK_MEMBERS'))
+                {
+                    message.channel.send('Looks like your missing the permissions to that.')
+                }
+                else
+                {
+                    if(args == message.mentions.users.first())
+                    {
+                        if(!message.member.missingPermissions('KICK_MEMBERS'))
+                        {
+                            let person = message.mentions.users.first()
+                            person.kick('Member kicked by ' + message.author.displayName)
+                        }
+                    }
+                }
             }
-            else
-            {
-                  if(args = message.mentions.members.first())
-            {
-                if(!message.member.missingPermissions('KICK_MEMBERS')
-                   {
-                       let member = message.mentions.members.first()
-                    member.kick('Member was kicked by ' + message.member.displayName + ' You should ask.'
-                   }
-            }
-            else
-            {
-                message.channel.send('You must specify a member.')
-            }
-        }       
+        }
     }
 }
     module.exports = KickMemberCommand

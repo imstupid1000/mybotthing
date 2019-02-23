@@ -4,6 +4,7 @@ const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-'
 });
+const token = process.env.BOT_TOKEN
 
 bot.registry.registerGroup('fun', 'Fun');
 bot.registry.registerGroup('music', 'Music');
@@ -38,7 +39,7 @@ bot.on('ready', function(){
                 const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(message.member.displayAvatarURL)
+                .setThumbnail(message.author.displayAvatarURL)
                 .addField('Message', message.content)
                 .addField('Member', message.member.displayName)
                 .setTimestamp()
@@ -54,11 +55,11 @@ bot.on('ready', function(){
 if (message.guild.channels.find(c => c.name === 'logs'))
            
                 {
-                 const channel = message.guild.channels.find(c => c.name === 'logs')                 let                  let channel = message.guild.channels.find('text', 'logs')channel = message.guild.channels.find('text', 'logs')ge.guild.channels.find('text', 'logs')
+                 const channel = message.guild.channels.find(c => c.name === 'logs')            
                 const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(message.member.displayAvatarURL)
+                .setThumbnail(message.author.displayAvatarURL)
                 .addField('Message', message.content)
                 .addField('Member', message.member.displayName)
                 .setTimestamp()
@@ -120,4 +121,4 @@ bot.on('ready', function(){
 
 
 
-bot.login(process.env.BOT_TOKEN)
+bot.login(token)
