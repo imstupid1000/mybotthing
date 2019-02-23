@@ -25,9 +25,22 @@ constructor(client)
         {
             if(args = message.mentions.members.first())
             {
-                const member = message.mentions.members.first();
-                member.kick('Member kicked by ' + message.member.displayName);
-                message.channel.send('Successfully kicked ' + message.mentions.members.first())
+                if(message.member.missingPermissions('KICK_MEMBERS')
+                   {
+                       message.channel.send('Looks like your missing permissions. I guees you cant kick them.'
+                   }
+ 
+                
+            }
+            else
+            {
+                  if(args = message.mentions.members.first())
+            {
+                if(!message.member.missingPermissions('KICK_MEMBERS')
+                   {
+                       let member = message.mentions.members.first()
+                    member.kick('Member was kicked by ' + message.member.displayName + ' You should ask.'
+                   }
             }
             else
             {
