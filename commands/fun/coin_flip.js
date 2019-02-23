@@ -1,10 +1,8 @@
 const commando = require('discord.js-commando')
 
-class CoinFlipCommand extends commando.Command
-{
-constructor(client)
-    {
-        super(client,{
+class CoinFlipCommand extends commando.Command {
+    constructor(client) {
+        super(client, {
             name: 'coinflip',
             group: 'fun',
             memberName: 'coinflip',
@@ -12,24 +10,23 @@ constructor(client)
 
         });
     }
-    async run(message, args)
-    {
+    async run(message, args) {
         var chance = Math.floor(Math.random() * 2);
-        if(chance == 0){
+        if (chance == 0) {
             message.channel.send('Flipping coin..')
             message.channel.send('You got Heads!', {
                 files: [
-                    "./images/coin-heads.png"]
+                    "./images/coin-heads.png"
+                ]
             });
-            }
-            else
-            {
-                message.channel.send('Flipping coin..')
-                message.channel.send('You got Tails!', {
-                    files: [
-                        "./images/coin-tails.png"]
+        } else {
+            message.channel.send('Flipping coin..')
+            message.channel.send('You got Tails!', {
+                files: [
+                    "./images/coin-tails.png"
+                ]
             });
         }
     }
 }
-    module.exports = CoinFlipCommand
+module.exports = CoinFlipCommand

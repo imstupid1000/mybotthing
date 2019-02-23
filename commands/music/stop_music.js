@@ -1,10 +1,8 @@
 const commando = require('discord.js-commando')
 
-class LeaveChannelCommand extends commando.Command
-{
-constructor(client)
-    {
-        super(client,{
+class LeaveChannelCommand extends commando.Command {
+    constructor(client) {
+        super(client, {
             name: 'stop',
             group: 'music',
             memberName: 'stop',
@@ -12,22 +10,17 @@ constructor(client)
 
         });
     }
-    async run(message, args)
-    {
-        if(message.member.voiceChannel)
-        {
-            if(message.guild.voiceConnection)
-            {
+    async run(message, args) {
+        if (message.member.voiceChannel) {
+            if (message.guild.voiceConnection) {
                 const channel = message.member.voiceChannel;
-                 channel.leave()
-                 console.log('Disconnected!')
-                 message.react('👍')
+                channel.leave()
+                console.log('Disconnected!')
+                message.react('👍')
             }
-        }
-        else
-        {
+        } else {
             message.channel.send('You must be in my voice channel for me to leave it.')
         }
     }
 }
-    module.exports = LeaveChannelCommand
+module.exports = LeaveChannelCommand

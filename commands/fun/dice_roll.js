@@ -1,10 +1,8 @@
 const commando = require('discord.js-commando');
 
-class DieRollCommand extends commando.Command
-{
-    constructor(client)
-    {
-        super(client,{
+class DieRollCommand extends commando.Command {
+    constructor(client) {
+        super(client, {
             name: 'roll',
             group: 'fun',
             memberName: 'roll',
@@ -12,25 +10,19 @@ class DieRollCommand extends commando.Command
         });
     }
 
-    async run(message, args)
-    {   if(args == '')
-        {
+    async run(message, args) {
+        if (args == '') {
             var dieRoll = Math.floor(Math.random() * 6) + 1;
             message.channel.send('You rolled a ' + dieRoll + '!');
-        }
-        else
-        {
-            if(isNaN(args))
-            {
+        } else {
+            if (isNaN(args)) {
                 message.channel.send('"' + args + '"' + ' is not a number!')
+            } else {
+                var dieRoll = Math.floor(Math.random() * args) + 1;
+                message.channel.send('You rolled a ' + dieRoll + '!');
             }
-            else
-            {
-            var dieRoll = Math.floor(Math.random() * args) + 1;
-            message.channel.send('You rolled a ' + dieRoll + '!');
-            }
+        }
     }
-  } 
 }
 
 module.exports = DieRollCommand

@@ -1,27 +1,26 @@
 const commando = require('discord.js-commando')
 const YTDL = require('ytdl-core');
-const {queue} = require(__dirname + '/json files/queue.json')
+const {
+    queue
+} = require(__dirname + '/json files/queue.json')
 
-function Play(connection, message)
-{
+function Play(connection, message) {
     var server = servers[message.guild.id]
-    server.dispatcher = connection.playStream(YTDL(queue[0], {filter: "audioonly"}));
+    server.dispatcher = connection.playStream(YTDL(queue[0], {
+        filter: "audioonly"
+    }));
     queue.shift();
-    server.dispatcher.on("end", function(){
-        if(queue[0])
-        {
+    server.dispatcher.on("end", function () {
+        if (queue[0]) {
             Play(connection, message);
-        }
-        else{
+        } else {
             connection.disconnect();
         }
     });
 }
-class JoinChannelCommand extends commando.Command
-{
-constructor(client)
-    {
-        super(client,{
+class JoinChannelCommand extends commando.Command {
+    constructor(client) {
+        super(client, {
             name: 'play',
             group: 'music',
             memberName: 'play',
@@ -29,31 +28,27 @@ constructor(client)
 
         });
     }
-    async run(message, args)
-    {
-        if(message.member.voiceChannel)
-        {
-            if(!message.guild.voiceConnection)
-            {
-                if(!servers[message.guild.id])
-                {
-                    servers[message.guild.id] = {queue: []}
+    async run(message, args) {
+        if (message.member.voiceChannel) {
+            if (!message.guild.voiceConnection) {
+                if (!servers[message.guild.id]) {
+                    servers[message.guild.id] = {
+                        queue: []
+                    }
                 }
                 const channel = message.member.voiceChannel;
-                 channel.join() 
-                 .then(connection =>{
-                    var server = servers[message.guild.id];
-                    message.react('👍')
-                     queue.push(args);
-                     Play(connection, message);
-                 })
+                channel.join()
+                    .then(connection => {
+                        var server = servers[message.guild.id];
+                        message.react('👍')
+                        queue.push(args);
+                        Play(connection, message);
+                    })
 
             }
-        }
-        else
-        {
+        } else {
             message.channel.send('You must be in a voice channel for me to join it.')
         }
     }
 }
-    module.exports = JoinChannelCommand
+module.exports = JoinChannelCommand

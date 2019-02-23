@@ -4,37 +4,25 @@ const bot = new commando.Client({
     commandPrefix: '-'
 });
 
-class KickMemberCommand extends commando.Command
-{
-constructor(client)
-    {
-        super(client,{
+class KickMemberCommand extends commando.Command {
+    constructor(client) {
+        super(client, {
             name: 'kick',
             group: 'tools',
             memberName: 'kick',
             description: 'Kicks specified member'
         });
     }
-    async run(message, args)
-    {
-        if(args == '')
-        {
+    async run(message, args) {
+        if (args == '') {
             message.channel.send('Specify a member.')
-        }
-        else
-        {
-            if(args == message.mentions.users.first())
-            {
-                if(message.member.missingPermissions('KICK_MEMBERS'))
-                {
+        } else {
+            if (args == message.mentions.users.first()) {
+                if (message.member.missingPermissions('KICK_MEMBERS')) {
                     message.channel.send('Looks like your missing the permissions to that.')
-                }
-                else
-                {
-                    if(args == message.mentions.users.first())
-                    {
-                        if(!message.member.missingPermissions('KICK_MEMBERS'))
-                        {
+                } else {
+                    if (args == message.mentions.users.first()) {
+                        if (!message.member.missingPermissions('KICK_MEMBERS')) {
                             let person = message.mentions.users.first()
                             person.kick('Member kicked by ' + message.author.displayName)
                         }
@@ -44,4 +32,4 @@ constructor(client)
         }
     }
 }
-    module.exports = KickMemberCommand
+module.exports = KickMemberCommand
