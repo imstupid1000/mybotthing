@@ -116,12 +116,18 @@ bot.on('guildMemberAdd', async member => {
 	ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-	// Get the icon in the form of a buffer
+	// Pick up the pen
+	ctx.beginPath();
+	// Start the arc to form a circle
+	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
+	// Put the pen down
+	ctx.closePath();
+	// Clip off the region you drew on
+	ctx.clip();
+
 	const { body: buffer } = await snekfetch.get(member.user.displayAvatarURL);
-	// Wait for Canvas to load the image
 	const avatar = await Canvas.loadImage(buffer);
-	// Draw a shape onto the main canvas
-	ctx.drawImage(avatar, 25, 0, 200, canvas.height);
+	ctx.drawImage(avatar, 25, 25, 200, 200);
 
 	const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
 
