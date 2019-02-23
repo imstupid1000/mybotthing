@@ -54,7 +54,7 @@ bot.on('ready', function(){
            if(message.guild.channels.find('name', 'logs'))
            
                 {
-             
+                  let channel = message.guild.channels.find('name', 'logs')
                 const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
