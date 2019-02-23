@@ -1,4 +1,7 @@
 {
-    "message1": "Welcome,",
-    "message2": "Welcome to ${member.guild.name}"
+    "1": "Welcome,",
+    "2": "Welcome to ${member.guild.name}",
+    "3": "Welcome to the server",
+    "4": "Have fun, I guess.",
+    "5": "Oh look! Someone new."
 }
