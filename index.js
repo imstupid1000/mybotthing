@@ -29,7 +29,7 @@ bot.on('ready', function(){
     console.log('Bot is ready.');
     
     bot.on('messageDelete', function(message){
-           if (message.guild.channels.find(c => c.name === 'logs'))
+           if(!message.guild.channels.find(c => c.name === 'logs'))
            {
                message.guild.createChannel('logs', 'text')
            
@@ -51,10 +51,10 @@ bot.on('ready', function(){
 
         })
     bot.on('messageDelete', function(message){
-if (!message.guild.channels.find(c => c.name === 'logs'))
+if (message.guild.channels.find(c => c.name === 'logs'))
            
                 {
-                 let channel = message.guild.channels.find('text', 'logs')
+                 const channel = message.guild.channels.find(c => c.name === 'logs')                 let                  let channel = message.guild.channels.find('text', 'logs')channel = message.guild.channels.find('text', 'logs')ge.guild.channels.find('text', 'logs')
                 const embed = new Discord.RichEmbed()
                 .setTitle('Message Deleted')
                 .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -79,7 +79,7 @@ bot.on('guildMemberAdd', function(member){
         member.guild.createChannel('welcome', 'text')
         .then(function()
         {
-            let channel = member.guild.channels.find('name', 'welcome')
+            let channel = message.guild.channels.find(c => c.name === 'logs').
             channel.send(member.displayName + ' has joined the server!')
         })
     }
