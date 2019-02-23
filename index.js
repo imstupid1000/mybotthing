@@ -51,7 +51,7 @@ bot.on('ready', function(){
 
         })
     bot.on('messageDelete', function(message){
-           if(message.guild.channels.find('name', 'logs'))
+           if (!message.guild.channels.find(c=>c.name==='logs')
            
                 {
                  let channel = message.guild.channels.find(c=>c.name==='logs')
