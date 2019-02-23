@@ -103,7 +103,7 @@ bot.on('guildMemberAdd', function (member) {
 });
 
 
-client.on('guildMemberAdd', async member => {
+bot.on('guildMemberAdd', async member => {
 	const channel = member.guild.channels.find(ch => ch.name === 'member-log');
 	if (!channel) return;
 
