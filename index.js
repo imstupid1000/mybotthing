@@ -4,7 +4,7 @@ const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-'
 });
-const token = process.env.BOT_TOKEN
+
 
 bot.registry.registerGroup('fun', 'Fun');
 bot.registry.registerGroup('music', 'Music');
@@ -119,4 +119,4 @@ bot.on('ready', function () {
 
 
 
-bot.login(token)
+bot.login(process.env.BOT_TOKEN)
