@@ -1,7 +1,11 @@
 {
     "1": "Welcome,",
-    "2": "Welcome to ${member.guild.name}",
+    "2": "Welcome to.. this place.",
     "3": "Welcome to the server",
     "4": "Have fun, I guess.",
-    "5": "Oh look! Someone new."
+    "5": "Oh look! Someone new.",
+    "6": "im running out of ideas",
+    "7": "Hola, como estas",
+    "8": "你好!",
+    "9": "Well, hello there."
 }

@@ -122,6 +122,9 @@ bot.on('guildMemberAdd', async member => {
 
     const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext('2d');
+    const welcomes = require('./welcomes.json')
+    const values = Object.values(welcomes)
+    const welcomemessage = values[parseInt(Math.random() * values.length)]
 
     const background = await Canvas.loadImage('./images/wallpaper.jpg');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
@@ -132,7 +135,7 @@ bot.on('guildMemberAdd', async member => {
     // Slightly smaller text placed above the member's display name
     ctx.font = '28px arial';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText('Welcome to the server,', canvas.width / 2.5, canvas.height / 3.5);
+    ctx.fillText(welcomemessage, canvas.width / 2.5, canvas.height / 3.5);
 
     // Add an exclamation point here and below
     ctx.font = applyText(canvas, `${member.displayName}!`);
@@ -143,7 +146,7 @@ bot.on('guildMemberAdd', async member => {
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
     ctx.closePath();
     ctx.clip();
-    const welcomes = require('./welcomes.json')
+    
     const {
         body: buffer
     } = await snekfetch.get(member.user.displayAvatarURL);
@@ -151,8 +154,6 @@ bot.on('guildMemberAdd', async member => {
     ctx.drawImage(avatar, 25, 25, 200, 200);
 
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
-   const values = Object.values(welcomes)
-   const welcomemessage = values[parseInt(Math.random() * values.length)]
 
     channel.send(`${welcomemessage}, ${member}!`, attachment);
 });
