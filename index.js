@@ -151,11 +151,8 @@ bot.on('guildMemberAdd', async member => {
     ctx.drawImage(avatar, 25, 25, 200, 200);
 
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
-    const choosenumber = Math.floor(Math.random() * 5) + 1;
-    const welcomemessage = fs.readFile('welcomes.json', (err, data) => {
-        if (err) throw err;
-        let actualthing = JSON.parse(data, choosenumber)
-    })
+   const values = Object.values(welcomes)
+   const welcomemessage = values[parseInt(Math.random() * values.length)]
 
     channel.send(`${welcomemessage}, ${member}!`, attachment);
 });
