@@ -104,6 +104,18 @@ bot.on('guildMemberAdd', function (member) {
 });
 
 
+const applyText = (canvas, text) => {
+    const ctx = canvas.getContext('2d');
+    let fontSize = 70;
+
+    do {
+        ctx.font = `${fontSize -= 10}px sans-serif`;
+    } while (ctx.measureText(text).width > canvas.width - 300);
+
+    return ctx.font;
+};
+
+
 bot.on('guildMemberAdd', async member => {
     const channel = member.guild.channels.find(ch => ch.name === 'logs');
     if (!channel) return;
@@ -141,7 +153,7 @@ bot.on('guildMemberAdd', async member => {
     const attachment = new Discord.Attachment(canvas.toBuffer(), 'welcome-image.png');
     const choosenumber = Math.floor(Math.random() * 5) + 1;
     const welcomemessage = fs.readFile('welcomes.json', (err, data) => {
-        if(err) throw err;
+        if (err) throw err;
         let actualthing = JSON.parse(data, choosenumber)
     })
 
