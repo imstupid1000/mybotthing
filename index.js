@@ -75,17 +75,7 @@ bot.on('ready', function () {
 
 
 
-    bot.on('guildMemberAdd', function (member) {
-        if (!member.guild.channels.find('name', 'welcome')) {
-            member.guild.createChannel('welcome', 'text')
-                .then(function () {
-                    let channel = message.guild.channels.find(c => c.name === 'welcome').
-                    channel.send(member.displayName + ' has joined the server!')
-                })
-        }
-    })
-
-});
+    
 bot.on('guildMemberAdd', function (member) {
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
@@ -109,7 +99,7 @@ const applyText = (canvas, text) => {
     let fontSize = 70;
 
     do {
-        ctx.font = `${fontSize -= 10}px sans-serif`;
+        ctx.font = `${fontSize -= 10}px arial`;
     } while (ctx.measureText(text).width > canvas.width - 300);
 
     return ctx.font;
