@@ -29,7 +29,7 @@ bot.on('message', function (message) {
 
 
 bot.on('ready', function () {
-    console.log('Bot is ready.');
+    console.log('Bot is ready.'))};
 
     bot.on('messageDelete', function (message) {
         if (!message.guild.channels.find(c => c.name === 'logs')) {
