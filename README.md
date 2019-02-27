@@ -23,3 +23,4 @@ Automatic will create a role called Member and give it to whoever joins. Default
 Automatic posts when someone joins in a channel called logs, it also posts when someone deletes their message.
 These things will possibly be changable in the future.
 Thats all for now! This will change as the bot updates :) -- maybe
+[![Discord Bots](https://discordbots.org/api/widget/546987669867986944.svg)](https://discordbots.org/bot/546987669867986944)
