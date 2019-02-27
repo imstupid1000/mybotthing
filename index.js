@@ -99,7 +99,7 @@ const applyText = (canvas, text) => {
     let fontSize = 70;
 
     do {
-        ctx.font = `${fontSize -= 10}px arial`;
+        ctx.font = `${fontSize -= 10}px sans-serif`;
     } while (ctx.measureText(text).width > canvas.width - 300);
 
     return ctx.font;
