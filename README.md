@@ -12,10 +12,14 @@ Here are the commands that currently exist (this may not get updated)
 -play (youtube url) -- Plays specified song in voice channel of the commander
 -stop - Bot leaves channel of commander
 # Tools
--kick (user mention) (use -disable kick because anyone can use this, meaning they can kick anyone)
+-kick (user mention) (mods can be kicked)
+-write (this does nothing atm)
+-serverinfo (Displays info about the server, not done yet, the info is pretty useless)
 # Thats it!
 Automatic needs admin permissions for some of it's parts to work correctly.
 Automatic creates a channel called welcome when a user joins. Automatic will say "(user) has joined the server!" This channel should be edited so not everyone can post there.
-Automatic will also create a role called Member and give it to whoever joins. Default color is bright green.
+
+Automatic will create a role called Member and give it to whoever joins. Default color is bright green.
+Automatic posts when someone joins in a channel called logs, it also posts when someone deletes their message.
 These things will possibly be changable in the future.
 Thats all for now! This will change as the bot updates :) -- maybe
