@@ -12,7 +12,13 @@ class ProfilePictureCommand extends commando.Command {
   async run(message, args) {
     if (message.mentions.members.first()) {
       const person = message.mentions.users.first()
-      message.channel.send('[PFP](person.displayAvatarURL)')
+      message.channel.send({
+        "embed": {
+          "title": "Profile Picture",
+          "url": person.displayAvatarURL,
+          "color": 1249168
+        }
+      });
     } else {
       message.channel.send({
         "embed": {
