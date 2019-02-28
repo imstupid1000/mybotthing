@@ -29,52 +29,53 @@ bot.on('message', function (message) {
 
 
 bot.on('ready', function () {
-    console.log('Bot is ready.')});
-    bot.on('messageDelete', function (message) {
-        if (!message.guild.channels.find(c => c.name === 'logs')) {
-            message.guild.createChannel('logs', 'text')
+    console.log('Bot is ready.')
+});
+bot.on('messageDelete', function (message) {
+    if (!message.guild.channels.find(c => c.name === 'logs')) {
+        message.guild.createChannel('logs', 'text')
 
-                .then(function (channel) {
+            .then(function (channel) {
 
-                    const embed = new Discord.RichEmbed()
-                        .setTitle('Message Deleted')
-                        .setAuthor(bot.user.username, bot.user.avatarURL)
-                        .setThumbnail(message.author.displayAvatarURL)
-                        .addField('Message', message.content)
-                        .addField('Member', message.member.displayName)
-                        .setTimestamp()
-                        .setURL(message.url)
-                        .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
-                        .setColor('#00FF00')
-                    channel.send(embed)
-                })
-        }
+                const embed = new Discord.RichEmbed()
+                    .setTitle('Message Deleted')
+                    .setAuthor(bot.user.username, bot.user.avatarURL)
+                    .setThumbnail(message.author.displayAvatarURL)
+                    .addField('Message', message.content)
+                    .addField('Member', message.member.displayName)
+                    .setTimestamp()
+                    .setURL(message.url)
+                    .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
+                    .setColor('#00FF00')
+                channel.send(embed)
+            })
+    }
 
-    })
-    bot.on('messageDelete', function (message) {
-        if (message.guild.channels.find(c => c.name === 'logs'))
+})
+bot.on('messageDelete', function (message) {
+    if (message.guild.channels.find(c => c.name === 'logs'))
 
-        {
-            const channel = message.guild.channels.find(c => c.name === 'logs')
-            const embed = new Discord.RichEmbed()
-                .setTitle('Message Deleted')
-                .setAuthor(bot.user.username, bot.user.avatarURL)
-                .setThumbnail(message.author.displayAvatarURL)
-                .addField('Message', message.content)
-                .addField('Member', message.member.displayName)
-                .setTimestamp()
-                .setURL(message.url)
-                .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
-                .setColor('#00FF00')
-            channel.send(embed)
+    {
+        const channel = message.guild.channels.find(c => c.name === 'logs')
+        const embed = new Discord.RichEmbed()
+            .setTitle('Message Deleted')
+            .setAuthor(bot.user.username, bot.user.avatarURL)
+            .setThumbnail(message.author.displayAvatarURL)
+            .addField('Message', message.content)
+            .addField('Member', message.member.displayName)
+            .setTimestamp()
+            .setURL(message.url)
+            .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
+            .setColor('#00FF00')
+        channel.send(embed)
 
-        }
+    }
 
-    })
+})
 
 
 
-    
+
 bot.on('guildMemberAdd', function (member) {
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
@@ -98,7 +99,7 @@ const applyText = (canvas, text) => {
     let fontSize = 70;
 
     do {
-        ctx.font = `${fontSize -= 10}px sans-serif`;
+        ctx.font = `${fontSize -= 10}px helvetica`;
     } while (ctx.measureText(text).width > canvas.width - 300);
 
     return ctx.font;
@@ -120,13 +121,11 @@ bot.on('guildMemberAdd', async member => {
 
     ctx.strokeStyle = '#74037b';
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
-
-    // Slightly smaller text placed above the member's display name
     ctx.font = '28px arial';
     ctx.fillStyle = '#ffffff';
     ctx.fillText(welcomemessage, canvas.width / 2.5, canvas.height / 3.5);
 
-    // Add an exclamation point here and below
+
     ctx.font = applyText(canvas, `${member.displayName}!`);
     ctx.fillStyle = '#ffffff';
     ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
@@ -135,7 +134,7 @@ bot.on('guildMemberAdd', async member => {
     ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
     ctx.closePath();
     ctx.clip();
-    
+
     const {
         body: buffer
     } = await snekfetch.get(member.user.displayAvatarURL);
