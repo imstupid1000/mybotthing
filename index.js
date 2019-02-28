@@ -1,6 +1,6 @@
 const Commando = require("discord.js-commando")
 const Discord = require('discord.js')
-const bot = new Commando.bot({
+const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-'
 });
@@ -42,7 +42,7 @@ bot.on('messageDelete', function (message) {
                     .setThumbnail(message.author.displayAvatarURL)
                     .addField('Message', message.content)
                     .addField('Member', message.member.displayName)
-                    .setTimestamp()
+                    .setTimestamp(new Date())
                     .setURL(message.url)
                     .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
                     .setColor('#00FF00')
@@ -62,7 +62,7 @@ bot.on('messageDelete', function (message) {
             .setThumbnail(message.author.displayAvatarURL)
             .addField('Message', message.content)
             .addField('Member', message.member.displayName)
-            .setTimestamp()
+            .setTimestamp(new Date())
             .setURL(message.url)
             .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
             .setColor('#00FF00')
