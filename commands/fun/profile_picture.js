@@ -12,7 +12,7 @@ class ProfilePictureCommand extends commando.Command {
   async run(message, args) {
     if (message.mentions.members.first()) {
       const person = message.mentions.users.first()
-      message.channel.send(['PFP'](person.displayAvatarURL))
+      message.channel.send('[PFP](person.displayAvatarURL)')
     } else {
       message.channel.send({
         "embed": {
