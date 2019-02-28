@@ -18,11 +18,11 @@ class KickMemberCommand extends commando.Command {
             message.channel.send('Specify a member.')
         } else {
             if (args == message.mentions.users.first()) {
-                if (message.member.missingPermissions('KICK_MEMBERS')) {
+                if (!message.member.missingPermissions('KICK_MEMBERS')) {
                     message.channel.send('Looks like your missing the permissions to that.')
                 } else {
                     if (args == message.mentions.users.first()) {
-                        if (!message.member.missingPermissions('KICK_MEMBERS')) {
+                        if (message.member.missingPermissions('KICK_MEMBERS')) {
                             let person = message.mentions.users.first()
                             person.kick('Member kicked by ' + message.author.displayName)
                         }
