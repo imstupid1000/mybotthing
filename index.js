@@ -27,8 +27,8 @@ bot.on('message', function (message) {
 
 bot.on('messageReactionAdd', function(){
     module.exports = class {
-        constructor(bot) {
-          this.bot = bot;
+        constructor(client) {
+          this.client = client;
         }
       
         async run(reaction, user) {
@@ -81,8 +81,8 @@ bot.on('messageReactionAdd', function(){
 
 bot.on('messageReactionRemove', function(){
     module.exports = class {
-        constructor(bot) {
-          this.bot = bot;
+        constructor(client) {
+          this.client = client;
         }
       
         async run(reaction, user) {
