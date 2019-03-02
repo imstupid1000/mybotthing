@@ -28,7 +28,8 @@ bot.on('message', function (message) {
 
 
 bot.on('ready', function () {
-    console.log('Bot is ready.')
+    console.log('Bot is ready. Logged in as ' + bot.user.displayName)
+    console.log('Time when bot was logged in: ' + new Date())
 });
 bot.on('messageDelete', function (message) {
     if (!message.guild.channels.find(c => c.name === 'logs')) {
