@@ -28,7 +28,7 @@ bot.on('message', function (message) {
 
 
 bot.on('ready', function () {
-    console.log('Bot is ready. Logged in as ' + bot.user.displayName)
+    console.log('Bot is ready. Logged in as ' + bot.user.username)
     console.log('Time when bot was logged in: ' + new Date())
 });
 bot.on('messageDelete', function (message) {
