@@ -1,0 +1,11 @@
+{
+    "defaults": {
+        "logs-channel": {
+            "new-members": true,
+            "message-deleted": true
+        },
+        "prefix": "-",
+        "bot-nickname": "Automatic"
+    }
+    
+}
