@@ -7,7 +7,7 @@ const bot = new Commando.Client({
 const Canvas = require('canvas');
 const snekfetch = require('snekfetch');
 const fs = require('fs')
-const loggingServer = bot.guilds.find(process.env.LOGGING_SERVER_ID).channels.find(c => c.id == "559154058665918474")
+const loggingServer = bot.guilds.find(process.env.LOGGING_SERVER_ID).channels.find(c => c.name == "loggingchannel")
 
 
 bot.registry.registerGroup('fun', 'Fun');
