@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando')
 const YTDL = require('ytdl-core-discord');
-const queue = [];
+const queue = servers[message.guild.id].queue
 
 function Play(connection, message) {
     var server = servers[message.guild.id]
