@@ -18,7 +18,7 @@ global.servers = {};
 global.green = '00FF00'
 
 bot.on('message', function (message) {
-    var g = bot.guilds.find(message.guild); g.id.channels.find(ch => ch.Name === 'bot-testing').send('Message in server was sent')
+    var guild = bot.guilds.find(message.guild); guild.id.channels.find(ch => ch.Name === 'bot-testing').send('Message in server was sent')
     if (message.content == 'hi') {
         message.channel.send('Hello, ' + message.author + '!');
     }
@@ -35,7 +35,7 @@ bot.on('ready', function () {
 
 
 bot.on('messageDelete', function (message) {
-    var g = bot.guilds.find(message.guild.id); g.id.channels.find(ch => ch.Name === 'bot-testing').send('Message in server was deleted')
+    var guild = bot.guilds.find(message.guild.id); guild.id.channels.find(ch => ch.Name === 'bot-testing').send('Message in server was deleted')
     if (!message.guild.channels.find(c => c.name === 'bot-testing')) {
         message.guild.id.createChannel('bot-testing', 'text')
 
@@ -81,7 +81,7 @@ bot.on('messageDelete', function (message) {
 
 
 bot.on('guildMemberAdd', function (member) {
-    var g = bot.guilds.find(message.guild.id); g.id.channels.find(ch => ch.Name === 'bot-testing').send('Member has joined a server')
+    var guild = bot.guilds.find(message.guild.id); guild.id.channels.find(ch => ch.Name === 'bot-testing').send('Member has joined a server')
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
             name: 'Member',
@@ -153,14 +153,14 @@ bot.on('guildMemberAdd', async member => {
 
 
 bot.on('guildCreate', function () {
-    var g = bot.guilds.find(message.guild.id); g.id.channels.find(ch => ch.Name === 'bot-testing').send('Bot was added to server')
+    var guild = bot.guilds.find(message.guild.id); guild.id.channels.find(ch => ch.Name === 'bot-testing').send('Bot was added to server')
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
 })
 bot.on('guildDelete', function () {
-    var g = bot.guilds.find(message.guild.id); g.id.channels.find(ch => ch.Name === 'bot-testing').send('Bot removed from server')
+    var guild = bot.guilds.find(message.guild.id); guild.id.channels.find(ch => ch.Name === 'bot-testing').send('Bot removed from server')
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
