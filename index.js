@@ -18,7 +18,6 @@ global.servers = {};
 global.green = '00FF00'
 
 bot.on('message', function (message) {
-    const guild = bot.guilds.find('624442761919332352'); const schannel = guild.channels.find(c => c.name === 'bot-testing'); schannel.send('Message in server was sent')
     if (message.content == 'hi') {
         message.channel.send('Hello, ' + message.author + '!');
     }
