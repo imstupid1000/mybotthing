@@ -18,7 +18,7 @@ global.servers = {};
 global.green = '00FF00'
 
 bot.on('message', function (message) {
-    bot.guilds.find(message.guild).channels.find('channel', 'bot-testing').send('Message in server was sent')
+    var g = bot.guilds.find(message.guild); g.channels.find(ch => ch.Name === 'bot-testing').send('Message in server was sent')
     if (message.content == 'hi') {
         message.channel.send('Hello, ' + message.author + '!');
     }
@@ -35,9 +35,9 @@ bot.on('ready', function () {
 
 
 bot.on('messageDelete', function (message) {
-    bot.guilds.find(message.guild).channels.find('channel', 'bot-testing').send('Message in server was deleted')
-    if (!message.guild.channels.find(c => c.name === 'logs')) {
-        message.guild.createChannel('logs', 'text')
+    var g = bot.guilds.find(message.guild); g.channels.find(ch => ch.Name === 'bot-testing').send('Message in server was deleted')
+    if (!message.guild.channels.find(c => c.name === 'bot-testing')) {
+        message.guild.createChannel('bot-testing', 'text')
 
             .then(function (channel) {
 
@@ -60,7 +60,7 @@ bot.on('messageDelete', function (message) {
     if (message.guild.channels.find(c => c.name === 'logs'))
 
     {
-        const channel = message.guild.channels.find('channel', 'bot-testing')
+        const channel = message.guild.channels.find(ch => ch.Name === 'bot-testing')
         const embed = new Discord.RichEmbed()
             .setTitle('Message Deleted')
             .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -81,7 +81,7 @@ bot.on('messageDelete', function (message) {
 
 
 bot.on('guildMemberAdd', function (member) {
-    bot.guilds.find(message.guild).channels.find('channel', 'bot-testing').send('Member has joined a server')
+    var g = bot.guilds.find(message.guild); g.channels.find(ch => ch.Name === 'bot-testing').send('Member has joined a server')
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
             name: 'Member',
@@ -112,7 +112,7 @@ const applyText = (canvas, text) => {
 
 
 bot.on('guildMemberAdd', async member => {
-    const channel = member.guild.channels.find(ch => ch.name === 'logs');
+    const channel = member.guild.channels.find(ch => ch.name === 'bot-testing');
     if (!channel) return;
 
     const canvas = Canvas.createCanvas(700, 250);
@@ -153,14 +153,14 @@ bot.on('guildMemberAdd', async member => {
 
 
 bot.on('guildCreate', function () {
-    bot.guilds.find(message.guild).channels.find('channel', 'bot-testing').send('Bot was added to server')
+    var g = bot.guilds.find(message.guild); g.channels.find(ch => ch.Name === 'bot-testing').send('Bot was added to server')
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
 })
 bot.on('guildDelete', function () {
-    bot.guilds.find(message.guild).channels.find('channel', 'bot-testing').send('Bot removed from server')
+    var g = bot.guilds.find(message.guild); g.channels.find(ch => ch.Name === 'bot-testing').send('Bot removed from server')
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
