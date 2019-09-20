@@ -6,7 +6,6 @@ const bot = new Commando.Client({
 });
 const Canvas = require('canvas');
 const snekfetch = require('snekfetch');
-const loggingServer  = bot.guilds.find('624442761919332352')
 
 
 bot.registry.registerGroup('fun', 'Fun');
@@ -20,7 +19,7 @@ global.servers = {};
 global.green = '00FF00'
 
 bot.on('message', function (message) {
-    loggingServer.channels.find('624555907447259146').send('Message in server was sent')
+    bot.guilds.find('624442761919332352').channels.find('624555907447259146').send('Message in server was sent')
     if (message.content == 'hi') {
         message.channel.send('Hello, ' + message.author + '!');
     }
@@ -37,7 +36,7 @@ bot.on('ready', function () {
 
 
 bot.on('messageDelete', function (message) {
-    loggingServer.channels.find('624555907447259146').send('Message in server was deleted')
+    bot.guilds.find('624442761919332352').channels.find('624555907447259146').send('Message in server was deleted')
     if (!message.guild.channels.find(c => c.name === 'logs')) {
         message.guild.createChannel('logs', 'text')
 
@@ -62,7 +61,7 @@ bot.on('messageDelete', function (message) {
     if (message.guild.channels.find(c => c.name === 'logs'))
 
     {
-        const channel = message.guild.channels.find(c => c.name === 'logs')
+        const channel = message.guild.channels.find('624555907447259146')
         const embed = new Discord.RichEmbed()
             .setTitle('Message Deleted')
             .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -83,7 +82,7 @@ bot.on('messageDelete', function (message) {
 
 
 bot.on('guildMemberAdd', function (member) {
-    loggingServer.channels.find('624555907447259146').send('Member has joined a server')
+    bot.guilds.find('624442761919332352').channels.find('624555907447259146').send('Member has joined a server')
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
             name: 'Member',
@@ -155,14 +154,14 @@ bot.on('guildMemberAdd', async member => {
 
 
 bot.on('guildCreate', function () {
-    loggingServer.channels.find('624555907447259146').send('Bot was added to server')
+    bot.guilds.find('624442761919332352').channels.find('624555907447259146').send('Bot was added to server')
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
 })
 bot.on('guildDelete', function () {
-    loggingServer.channels.find('624555907447259146').send('Bot removed from server')
+    bot.guilds.find('624442761919332352').channels.find('624555907447259146').send('Bot removed from server')
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
