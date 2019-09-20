@@ -9,7 +9,6 @@ const snekfetch = require('snekfetch');
 
 
 bot.registry.registerGroup('fun', 'Fun');
-bot.registry.registerGroup('music', 'Music');
 bot.registry.registerGroup('gifs', 'Gifs');
 bot.registry.registerGroup('tools', 'Tools');
 bot.registry.registerDefaults();
