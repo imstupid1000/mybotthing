@@ -34,7 +34,7 @@ bot.on('ready', function () {
 
 
 bot.on('messageDelete', function (message) {
-    const guild = bot.guilds.find('624442761919332352'); const schannel = guild.channels.find(c => c.name === 'bot-testing'); schannel.send('Message in server was deleted')
+    message.guild.channels.find(c => c.name === 'logs')
     if (!message.guild.channels.find(c => c.name === 'bot-testing')) {
         message.guild.id.createChannel('bot-testing', 'text')
 
