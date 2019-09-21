@@ -21,7 +21,7 @@ class ModMailCommand extends Commando.Command {
             .setAuthor(message.author.username)
             .setThumbnail(message.author.displayAvatarURL)
             .addField('Message', args)
-            .addField('Sent by', message.author.username)
+            .addField('Sent by', message.author.username + message.author.tag)
             .setTimestamp(new Date())
             .setFooter("Message by " + message.author.username, message.member.displayAvatarURL)
             .setColor('#00FF00')
