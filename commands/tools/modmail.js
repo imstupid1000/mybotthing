@@ -1,4 +1,5 @@
 const Commando = require('discord.js-commando')
+const Discord = require('discord.js')
 
 class ModMailCommand extends Commando.Command {
     constructor(client) {
