@@ -14,7 +14,7 @@ class ModMailCommand extends Commando.Command {
         if (args == '') {
             message.channel.send('You must include a message.')
         } else {
-           await this.client.fetchUser('452666956353503252')
+           const user = await this.client.fetchUser('452666956353503252')
             user.send('Message: ' + args)
         }
     }
