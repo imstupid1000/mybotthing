@@ -1,9 +1,5 @@
 const commando = require('discord.js-commando')
 const Discord = require('discord.js')
-const client = new commando.Client({
-    owner: '452666956353503252',
-    commandPrefix: '-'
-});
 
 class ServerInfoCommand extends commando.Command {
     constructor(client) {
