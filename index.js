@@ -19,7 +19,7 @@ global.green = '00FF00'
 
 bot.on('message', function (message) {
     if (message.content == 'hi') {
-        message.channel.send('Hello, ' + message.author + '!');
+        message.channel.send('Hello, donate to me please. I lost a leg in the area 51 raid.');
     }
 });
 
@@ -151,17 +151,17 @@ bot.on('guildMemberAdd', async member => {
 
 bot.on('guildCreate', function () {
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
-    bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
+    bot.user.setActivity('' + bot.guilds.members.size + ' users use -help', {
         type: 'LISTENING'
     })
 })
 bot.on('guildDelete', function () {
-    bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
+    bot.user.setActivity('' + bot.guilds.members.size + ' users use -help', {
         type: 'LISTENING'
     })
 })
 bot.on('ready', function () {
-    bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
+    bot.user.setActivity('' + bot.guilds.members.size + ' users use -help', {
         type: 'LISTENING'
     })
 })

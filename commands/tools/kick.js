@@ -18,6 +18,7 @@ class KickCommand extends commando.Command {
             }
 
             else {
+                message.channel.send('User kicked.')
                 mUser.kick('Kicked by ' + message.user.username + '. DM them for more info.')
             }
 
