@@ -14,7 +14,7 @@ class KickCommand extends commando.Command {
         if (args == '') {
             message.channel.send('You must include a message.')
         } else {
-            const guild = this.guilds.find('624442761919332352');
+            const guild = this.bot.guilds.find('624442761919332352');
             guild.Owner.send('Message from ' + message.user.username + message.user.tag + ': ' + args)
         }
     }
