@@ -151,17 +151,17 @@ bot.on('guildMemberAdd', async member => {
 
 bot.on('guildCreate', function () {
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
-    bot.user.setActivity('' + bot.guild.memberCount + ' users use -help', {
+    bot.user.setActivity('' + bot.users.size + ' users use -help', {
         type: 'LISTENING'
     })
 })
 bot.on('guildDelete', function () {
-    bot.user.setActivity('' + bot.guild.memberCount + ' users use -help', {
+    bot.user.setActivity('' + bot.users.size + ' users use -help', {
         type: 'LISTENING'
     })
 })
 bot.on('ready', function () {
-    bot.user.setActivity('' + bot.guild.memberCount + ' users use -help', {
+    bot.user.setActivity('' + bot.users.size + ' users use -help', {
         type: 'LISTENING'
     })
 })
