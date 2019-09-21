@@ -1,11 +1,11 @@
-const commando = require('discord.js-commando')
+const Commando = require('discord.js-commando')
 const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-',
     fetchAllMembers: true
 });
 
-class KickCommand extends commando.Command {
+class KickCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'modmail',
