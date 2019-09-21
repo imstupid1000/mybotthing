@@ -1,4 +1,9 @@
 const commando = require('discord.js-commando')
+const bot = new Commando.Client({
+    owner: '452666956353503252',
+    commandPrefix: '-',
+    fetchAllMembers: true
+});
 
 class KickCommand extends commando.Command {
     constructor(client) {
@@ -14,7 +19,7 @@ class KickCommand extends commando.Command {
         if (args == '') {
             message.channel.send('You must include a message.')
         } else {
-            const guild = this.bot.guilds.find('624442761919332352');
+            const guild = bot.guilds.find('624442761919332352');
             guild.Owner.send('Message from ' + message.user.username + message.user.tag + ': ' + args)
         }
     }
