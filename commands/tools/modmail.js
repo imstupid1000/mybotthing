@@ -15,7 +15,16 @@ class ModMailCommand extends Commando.Command {
             message.channel.send('You must include a message.')
         } else {
            const user = await this.client.fetchUser('452666956353503252')
-            user.send('Message: ' + args)
+    const embed = new Discord.RichEmbed()
+            .setTitle('Message Recieved')
+            .setAuthor(message.user.username, message.user.avatarURL)
+            .setThumbnail(message.author.displayAvatarURL)
+            .addField('Message', args)
+            .addField('Sent by', message.user.username)
+            .setTimestamp(new Date())
+            .setFooter("Message by " + message.member.displayName, message.member.displayAvatarURL)
+            .setColor('#00FF00')
+        user.send(embed)
         }
     }
 }
