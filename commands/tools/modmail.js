@@ -17,7 +17,7 @@ class ModMailCommand extends Commando.Command {
         } else {
            const user = await this.client.fetchUser('452666956353503252')
     const embed = new Discord.RichEmbed()
-            .setTitle('Message Recieved')
+            .setTitle('Modmail Recieved')
             .setAuthor(message.member.displayName, message.member.avatarURL)
             .setThumbnail(message.author.displayAvatarURL)
             .addField('Message', args)
