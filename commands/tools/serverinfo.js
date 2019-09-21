@@ -23,7 +23,7 @@ class ServerInfoCommand extends commando.Command {
              */
             .setColor(0x00AE86)
             .setDescription("This server's info")
-            .setFooter("Requested by " + message.user.username)
+            .setFooter("Requested by " + message.user.name)
             .setThumbnail(message.guild.iconURL)
             /*
              * Takes a Date object, defaults to current date.
