@@ -35,7 +35,6 @@ bot.on('ready', function () {
 
 
 bot.on('messageDelete', function (message) {
-    const schannel = message.guild.channels.find(c => c.name === 'logs')
     if (!message.guild.channels.find(c => c.name === 'logs')) {
         message.guild.createChannel('logs', 'text')
 
@@ -79,7 +78,6 @@ bot.on('messageDelete', function (message) {
 
 
 bot.on('guildMemberAdd', function (member) {
-    const schannel = member.guild.channels.find(c => c.name === 'logs'); schannel.send('Member has joined a server')
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
             name: 'Member',
