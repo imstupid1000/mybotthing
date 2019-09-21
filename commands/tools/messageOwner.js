@@ -1,4 +1,5 @@
-const commando = require('discord.js-commando')
+const Commando = require("discord.js-commando")
+const Discord = require('discord.js')
 const bot = new Commando.Client({
     owner: '452666956353503252',
     commandPrefix: '-',
