@@ -5,7 +5,7 @@ const bot = new Commando.Client({
     fetchAllMembers: true
 });
 
-class KickCommand extends Commando.Command {
+class ModMailCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'modmail',
@@ -19,10 +19,10 @@ class KickCommand extends Commando.Command {
         if (args == '') {
             message.channel.send('You must include a message.')
         } else {
-           bot.fetchUser('452666956353503252')
+           const user = bot.fetchUser('452666956353503252')
             user.send('Message: ' + args)
         }
     }
 }
 
-module.exports = KickCommand
+module.exports = ModMailCommand 
