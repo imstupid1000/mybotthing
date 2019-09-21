@@ -13,7 +13,7 @@ class ModMailCommand extends Commando.Command {
 
     async run(message, args) {
         if (args == '') {
-            message.channel.send('You must include a message.')
+            message.channel.send('You must include a message. Example: -modmail Hello!')
         } else {
            const user = await this.client.fetchUser('452666956353503252')
     const embed = new Discord.RichEmbed()
@@ -26,7 +26,7 @@ class ModMailCommand extends Commando.Command {
             .setColor('#00FF00')
         user.send(embed); 
 
-       message.channel.send('Modmail sent.')
+       message.channel.send('Modmail sent to owner of Automatic. They will respond by sending a DM to you.')
         }
     }
 }
