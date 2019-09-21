@@ -6,7 +6,7 @@ class CatGifCommand extends commando.Command {
     constructor(client) {
         super(client, {
             name: 'cat',
-            group: 'gifs',
+            group: 'photos',
             memberName: 'cat',
             description: "Shows a random cat image.. or maybe a gif if you're lucky"
         });

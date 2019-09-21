@@ -10,7 +10,7 @@ const snekfetch = require('snekfetch');
 
 
 bot.registry.registerGroup('fun', 'Fun');
-bot.registry.registerGroup('gifs', 'Gifs');
+bot.registry.registerGroup('photos', 'Photos');
 bot.registry.registerGroup('tools', 'Tools');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '/commands');
