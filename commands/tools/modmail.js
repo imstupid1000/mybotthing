@@ -3,19 +3,19 @@ const commando = require('discord.js-commando')
 class KickCommand extends commando.Command {
     constructor(client) {
         super(client, {
-            name: 'kick',
+            name: 'modmail',
             group: 'tools',
-            memberName: 'kick',
-            description: 'Kicks a mentioned user.'
+            memberName: 'modmail',
+            description: 'Send a message to the owner of Automatic'
         });
     }
 
     async run(message, args) {
-        if(args == '') {
+        if (args == '') {
             message.channel.send('You must include a message.')
-        }
-        else{
-            const guild = this.guilds.find('624442761919332352'); guild.Owner.send('Message from ' + message.user.username + message.user.tag + ': ' + args)
+        } else {
+            const guild = this.guilds.find('624442761919332352');
+            guild.Owner.send('Message from ' + message.user.username + message.user.tag + ': ' + args)
         }
     }
 }
