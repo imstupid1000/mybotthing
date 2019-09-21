@@ -23,7 +23,7 @@ class ServerInfoCommand extends commando.Command {
              */
             .setColor(0x00AE86)
             .setDescription("This server's info")
-            .setFooter("This info is data about this server")
+            .setFooter("Requested by " + message.user.userName)
             .setThumbnail(message.guild.iconURL)
             /*
              * Takes a Date object, defaults to current date.
@@ -37,6 +37,7 @@ class ServerInfoCommand extends commando.Command {
              */
             .addField("Member count", message.guild.memberCount)
             .addField('Server name', message.guild.name)
+            .addField('Bot count', message.guild.memberCount.filter(member => member.user.bot))
 
         /*
          * Blank field, useful to create some space.
