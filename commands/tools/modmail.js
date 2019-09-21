@@ -26,7 +26,7 @@ class ModMailCommand extends Commando.Command {
             .setFooter("Message by " + message.author.username, message.member.displayAvatarURL)
             .setColor('#00FF00')
         user.send(embed)
-       .then(message.channel.send('Modmail has been sent.))
+       message.channel.send('Modmail has been sent.)
         }
     }
 }
