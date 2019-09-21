@@ -14,12 +14,14 @@ class DieRollCommand extends commando.Command {
         if (args == '') {
             var dieRoll = Math.floor(Math.random() * 6) + 1;
             message.channel.send('You rolled a ' + dieRoll + '!');
+            console.log('somebody rolled a die')
         } else {
             if (isNaN(args)) {
                 message.channel.send('"' + args + '"' + ' is not a number!')
             } else {
                 var dieRoll = Math.floor(Math.random() * args) + 1;
                 message.channel.send('You rolled a ' + dieRoll + '!');
+                console.log('somebody rolled a die, args included')
             }
         }
     }

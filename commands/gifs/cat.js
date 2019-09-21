@@ -13,6 +13,7 @@ class CatGifCommand extends commando.Command {
     }
     async run(message, args) {
         message.channel.send('Loading cat image.. This may take some time.')
+        console.log('Somebody using the cat command.')
         fetch('https://aws.random.cat/meow')
             .then(function (response) {
                 return response.json();

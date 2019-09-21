@@ -16,10 +16,12 @@ class CoinFlipCommand extends commando.Command {
             message.channel.send('Flipping coin..');
             message.channel.send('You got Heads!');
             message.channel.send('<:coinheads:624776445339762689>')
+            console.log('Somebody flipped a coin.')
         } else {
             message.channel.send('Flipping coin..');
             message.channel.send('You got Tails!');
             message.channel.send('<:cointails:624778624515702784>')
+            console.log('Somebody flipped a coin.')
         }
     }
 }
