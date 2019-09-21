@@ -37,7 +37,6 @@ class ServerInfoCommand extends commando.Command {
              */
             .addField("Member count", message.guild.memberCount)
             .addField('Server name', message.guild.name)
-            .addField('Bot count', message.guild.memberCount.filter(member => member.user.bot))
 
         /*
          * Blank field, useful to create some space.
