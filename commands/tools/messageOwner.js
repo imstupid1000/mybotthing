@@ -6,7 +6,7 @@ const bot = new Commando.Client({
     fetchAllMembers: true
 });
 
-class KickCommand extends commando.Command {
+class KickCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'msgowner',
