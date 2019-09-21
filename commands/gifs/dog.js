@@ -12,16 +12,8 @@ class DogGifCommand extends commando.Command {
         });
     }
     async run(message, args) {
-        message.channel.send('Loading dog image.. This may take some time.')
-        console.log('Somebody used the dog command.')
-        fetch('https://dog.ceo/api/breeds/image/random')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (myJson) {
-                message.channel.send(myJson)
-                message.react('🐶')
-            })
+        message.channel.send('This command doesnt work at the moment.')
+ 
     }
 }
 module.exports = DogGifCommand
