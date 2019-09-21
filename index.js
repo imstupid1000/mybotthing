@@ -56,8 +56,7 @@ bot.on('messageDelete', function (message) {
 
 })
 bot.on('messageDelete', function (message) {
-    if (message.guild.channels.find(c => c.name === 'logs'))
-    {
+    if (message.guild.channels.find(c => c.name === 'logs')) {
         const channel = message.guild.channels.find(c => c.name === 'logs')
         const embed = new Discord.RichEmbed()
             .setTitle('Message Deleted')
