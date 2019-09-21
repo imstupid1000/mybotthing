@@ -19,7 +19,8 @@ class KickCommand extends Commando.Command {
         if (args == '') {
             message.channel.send('You must include a message.')
         } else {
-            client.fetchUser('452666956353503252').send('Message from' + message.user.username + message.user.tag + ': ' + args)
+            const user = bot.fetchUser('452666956353503252')
+            user.send('Message from' + message.user.username + message.user.tag + ': ' + args)
         }
     }
 }
