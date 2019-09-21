@@ -58,7 +58,7 @@ bot.on('messageDelete', function (message) {
 bot.on('messageDelete', function (message) {
     if (message.guild.channels.find(c => c.name === 'logs'))
     {
-        const channel = message.guild.channels.find('624555907447259146')
+        const channel = message.guild.channels.find(c => c.name === 'logs')
         const embed = new Discord.RichEmbed()
             .setTitle('Message Deleted')
             .setAuthor(bot.user.username, bot.user.avatarURL)
@@ -79,7 +79,7 @@ bot.on('messageDelete', function (message) {
 
 
 bot.on('guildMemberAdd', function (member) {
-    const schannel = message.guild.channels.find(c => c.name === 'logs'); schannel.send('Member has joined a server')
+    const schannel = member.guild.channels.find(c => c.name === 'logs'); schannel.send('Member has joined a server')
     if (!member.guild.roles.find("name", 'Member')) {
         member.guild.createRole({
             name: 'Member',
@@ -151,14 +151,12 @@ bot.on('guildMemberAdd', async member => {
 
 
 bot.on('guildCreate', function () {
-    const schannel = message.guild.channels.find(c => c.name === 'logs'); schannel.send('Bot was added to server')
     /* this code changes the bot activity to "Listening to (amount of servers bot is in) | @botname help" when the bot is added to a server or removed from a server (this is way too long) */
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
 })
 bot.on('guildDelete', function () {
-    const schannel = message.guild.channels.find(c => c.name === 'logs'); schannel.send('Bot removed from server')
     bot.user.setActivity('' + bot.guilds.size + ' servers @Automatic help', {
         type: 'LISTENING'
     })
