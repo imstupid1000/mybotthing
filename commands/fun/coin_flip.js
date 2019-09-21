@@ -14,11 +14,7 @@ class CoinFlipCommand extends commando.Command {
         var chance = Math.floor(Math.random() * 2);
         if (chance == 0) {
             message.channel.send('Flipping coin..')
-            message.channel.send('You got Heads!', {
-                files: [
-                    "./images/coin-heads.png"
-                ]
-            });
+            message.channel.send('You got Heads! <:coinheads:624776445339762689>');
         } else {
             message.channel.send('Flipping coin..')
             message.channel.send('You got Tails!', {
