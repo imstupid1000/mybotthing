@@ -42,11 +42,11 @@ const Tags = sequelize.define('tags', {
 	},
 });
 
-client.once('ready', () => {
+bot.once('ready', () => {
 	Tags.sync();
 });
 
-client.on('message', async message => {
+bot.on('message', async message => {
 	if (message.content.startsWith(PREFIX)) {
 		const input = message.content.slice(PREFIX.length).split(' ');
 		const command = input.shift();
