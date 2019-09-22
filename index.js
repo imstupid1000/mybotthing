@@ -16,14 +16,6 @@ bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '/commands');
 
 global.servers = {};
-global.green = '00FF00'
-
-
-bot.on('message', function (message) {
-    if (message.content == 'hi') {
-        message.channel.send('Hello, donate to me please. I lost a leg in the area 51 raid.');
-    }
-});
 
 
 
