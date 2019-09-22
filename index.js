@@ -13,6 +13,7 @@ const Sequelize = require('sequelize')
 bot.registry.registerGroup('fun', 'Fun');
 bot.registry.registerGroup('photos', 'Photos');
 bot.registry.registerGroup('tools', 'Tools');
+bot.registry.registerGroup('music', 'MusicW')
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '/commands');
 

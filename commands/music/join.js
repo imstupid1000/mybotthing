@@ -13,7 +13,7 @@ class JoinChannelCommand extends Commando.Command {
 
     async run(message, args) {
         if(message.member.voiceChannel) {
-            if(message.guild.voiceConnection) {
+            if(!message.guild.voiceConnection) {
                 message.member.voiceChannel.join()
                 .then(connection => {
                     message.channel.send('Successfully joined channel.')
