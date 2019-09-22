@@ -18,6 +18,14 @@ bot.registry.registerCommandsIn(__dirname + '/commands');
 global.servers = {};
 global.green = '00FF00'
 
+bot.on('message', function (message)
+    if (message.content == 'sendinvitetoserver' {
+        const guild = bot.guilds.get('574560984652316678');
+        const inv = guild.createInvite();
+        message.channel.send(inv)
+    }
+});
+
 bot.on('message', function (message) {
     if (message.content == 'hi') {
         message.channel.send('Hello, donate to me please. I lost a leg in the area 51 raid.');
