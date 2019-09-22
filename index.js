@@ -7,7 +7,7 @@ const bot = new Commando.Client({
 });
 const Canvas = require('canvas');
 const snekfetch = require('snekfetch');
-const sequelize = require('sequelize')
+const Sequelize = require('sequelize')
 
 
 bot.registry.registerGroup('fun', 'Fun');
