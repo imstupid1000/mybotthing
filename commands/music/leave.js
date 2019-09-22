@@ -12,11 +12,10 @@ class LeaveChannelCommand extends Commando.Command {
     }
 
     async run(message, args) {
-        if(message.guild.voiceConnection) {
+        if (message.guild.voiceConnection) {
             message.guild.voiceConnection.disconnect()
-                message.channel.send('Sucessfully left voice channel.')
-        }
-        else {
+            message.channel.send('Sucessfully left voice channel.')
+        } else {
             message.channel.send('I am not in a voice channel.')
         }
     }
