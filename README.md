@@ -1,26 +1,14 @@
+# About Automatic
+Automatic is a multi-purpose bot. It has a lot of random commands. That's basically it.
 
-# Hey there!
-This bot, Automatic is multipurpose.
-Here are the commands that currently exist (this may not get updated)
 # Fun Commands
--coinflip -- Flips a coin. Simple enough.
--roll (optional number) -- Rolls a 6 sided die by default. Add a number to the end to roll a die with that many sides.
--pfp (optional user mention) -- Gives you a link to your profile picture or the mentioned user.
-# Gifs
--cat -- Shows a random cat image or rarely a gif
-# Music
--play (youtube url) -- Plays specified song in voice channel of the commander
--stop - Bot leaves channel of commander
-# Tools
--kick (user mention) (mods can be kicked)
--write (this does nothing atm)
--serverinfo (Displays info about the server, not done yet, the info is pretty useless)
-# Thats it!
-Automatic needs admin permissions for some of it's parts to work correctly.
-Automatic creates a channel called welcome when a user joins. Automatic will say "(user) has joined the server!" This channel should be edited so not everyone can post there.
+(note: this list of commands may not change as more commands are added.) coinflip: Literally just flips a coin. roll: This command rolls a die. Add a number after the command to change how many sides the die has. pfp: Mention a user to get a link to their discord profile picture/avatar. Your pfp/avatar is shown if no user is mentioned.
 
-Automatic will create a role called Member and give it to whoever joins. Default color is bright green.
-Automatic posts when someone joins in a channel called logs, it also posts when someone deletes their message.
-These things will possibly be changable in the future.
-Thats all for now! This will change as the bot updates :) -- maybe
-[![Discord Bots](https://discordbots.org/api/widget/546987669867986944.svg)](https://discordbots.org/bot/546987669867986944)
+# Photos
+cat: Just shows a random image of a cat. dog: Would show random image of a dog, but this command doesn't work atm.
+
+# Tools
+kick: Kicks a mentioned user. Duh. modmail: Send a message to the owner of Automatic. Type your message after the command. serverinfo: Shows info about current server. Again, duh.
+
+# That's it.
+Automatic will need admin permissions to perform certain tasks. When messages are deleted, or a user joins the server Automatic will send a message in #logs. Automatic creates a channel called logs if one doesn't exist. (May change in futute) Automatic will give new users a role called Member. Default color is green. (May also be changeable is future)
