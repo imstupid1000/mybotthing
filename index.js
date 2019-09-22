@@ -24,6 +24,13 @@ bot.on('message', function (message) {
     }
 });
 
+bot.on('message', function (message) {
+    if (message.content == 'plsworklmao') {
+        const guild = this.client.guilds.get('604234313239625740');
+        const invites = guild.fetchInvites();
+        console.log(invites)
+    }
+});
 
 
 bot.on('ready', function () {
