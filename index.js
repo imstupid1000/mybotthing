@@ -163,4 +163,4 @@ bot.on('ready', function () {
 
 
 
-bot.login(process.env.BOT_TOKEN)
+bot.login${{secret.BOT_TOKEN}}
