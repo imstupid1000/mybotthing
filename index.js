@@ -5,7 +5,7 @@ const bot = new Commando.Client({
     commandPrefix: '-',
     fetchAllMembers: true
 });
-const Canvas = require('canvas');
+
 const snekfetch = require('snekfetch');
 const Sequelize = require('sequelize')
 
